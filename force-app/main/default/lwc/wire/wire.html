@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="search contact" icon-name="standard:contact">
+        <h1>search for contacts by name</h1>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" label="Enter some text" onchange={handleChange}></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <template if:true={contacts.data}>
+                <template for:each={contacts.data} for:item="con">
+                    <p key={con.Id}>{con.Name}</p>
+                </template>
+            </template>
+            <template if:true={contacts.error}> 
+                {contacts.error}
+            </template>
+        </div>
+    </lightning-card>
+</template> 
